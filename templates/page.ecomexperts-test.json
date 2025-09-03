@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "ee-banner": { "type": "ee-banner", "settings": {} },
+    "ee-grid": { "type": "ee-product-grid", "settings": {}, "blocks": [] }
+  },
+  "order": ["ee-banner", "ee-grid"]
+}
