@@ -1,0 +1,98 @@
+{% comment %}
+  EE Banner Section — Custom section for Ecomexperts test
+{% endcomment %}
+{% comment %} styles {% endcomment %}
+ <style>
+.ee-banner {
+  background-size: cover;
+  background-position: center;
+  padding: clamp(4rem, 10vw, 8rem) 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.ee-banner__kicker {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.ee-banner__headline {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ee-banner__subcopy {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 2rem;
+}
+
+.ee-banner__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ee-banner__btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.ee-banner__btn--primary {
+  background: #000;
+  color: #fff;
+}
+
+.ee-banner__btn--secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.ee-banner__btn:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+</style>
+
+
+<section class="ee-banner" style="background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});">
+  <div class="ee-banner__content">
+    <p class="ee-banner__kicker">{{ section.settings.kicker }}</p>
+    <h1 class="ee-banner__headline">{{ section.settings.headline }}</h1>
+    <p class="ee-banner__subcopy">{{ section.settings.subcopy }}</p>
+
+    <div class="ee-banner__buttons">
+      <a href="{{ section.settings.primary_link }}" class="ee-banner__btn ee-banner__btn--primary">
+        {{ section.settings.primary_label }}
+      </a>
+      <a href="{{ section.settings.secondary_link }}" class="ee-banner__btn ee-banner__btn--secondary">
+        {{ section.settings.secondary_label }}
+      </a>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "EE Banner",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker text", "default": "New Collection" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Elevate your style" },
+    { "type": "text", "id": "subcopy", "label": "Subcopy", "default": "Premium essentials for daily wear." },
+
+    { "type": "text", "id": "primary_label", "label": "Primary Button Label", "default": "Shop Now" },
+    { "type": "url", "id": "primary_link", "label": "Primary Button Link" },
+
+    { "type": "text", "id": "secondary_label", "label": "Secondary Button Label", "default": "Learn More" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary Button Link" },
+
+    { "type": "image_picker", "id": "bg_image", "label": "Background Image" }
+  ],
+  "presets": [
+    { "name": "EE Banner" }
+  ]
+}
+{% endschema %}
